@@ -20,6 +20,11 @@ class MainFragment : BaseFragment(), MainMvpView {
         mainMvpPresenter.onAttach(this)
     }
 
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        mainMvpPresenter.getApplicationInfo(356336433)
+    }
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return container?.inflate(R.layout.fragment_main)
     }

@@ -1,7 +1,11 @@
 package com.mining.martynenko.ui.base
 
+import com.mining.martynenko.data.DataManager
+import javax.inject.Inject
+
 abstract class BasePresenter<V : MvpView> : MvpPresenter<V> {
-    var mvpView: V? = null
+    @Inject lateinit var dataManager: DataManager
+    private var mvpView: V? = null
 
     override fun onAttach(view: V) {
         mvpView = view
