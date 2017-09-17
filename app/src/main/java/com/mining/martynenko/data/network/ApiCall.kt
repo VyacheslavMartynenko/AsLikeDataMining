@@ -11,8 +11,7 @@ import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 interface ApiCall {
-    val ENDPOINT_SEARCH get() = "lookup"
-
+    
     @GET("lookup")
     fun getApplicationInfo(@Query("id") id: Int): Observable<ApplicationInfoResponse>
 
