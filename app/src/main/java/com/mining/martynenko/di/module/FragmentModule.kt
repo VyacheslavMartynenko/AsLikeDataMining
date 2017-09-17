@@ -7,6 +7,7 @@ import com.mining.martynenko.ui.main.MainMvpPresenter
 import com.mining.martynenko.ui.main.MainMvpView
 import dagger.Module
 import dagger.Provides
+import io.reactivex.disposables.CompositeDisposable
 
 @Module
 class FragmentModule(private val baseFragment: BaseFragment) {
@@ -15,4 +16,7 @@ class FragmentModule(private val baseFragment: BaseFragment) {
     @PerFragment
     fun provideMainFragmentPresenter(presenter: MainFragmentPresenter<MainMvpView>): MainMvpPresenter<MainMvpView> = presenter
 
+    @Provides
+    @PerFragment
+    fun provideCompositeDisposable(): CompositeDisposable = CompositeDisposable()
 }

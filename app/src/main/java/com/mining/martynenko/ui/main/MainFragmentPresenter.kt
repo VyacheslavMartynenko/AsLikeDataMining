@@ -8,10 +8,11 @@ import javax.inject.Inject
 
 class MainFragmentPresenter<V : MainMvpView> @Inject constructor() : BasePresenter<V>(), MainMvpPresenter<V> {
     override fun getApplicationInfo(id: Int) {
-        dataManager
-                .getApplicationInfo(id)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe { it.results.forEach { Log.e("Description", it.description) } }
+        compositeDisposable.add(
+                dataManager
+                        .getApplicationInfo(id)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe { it.results.forEach { Log.e("Description", it.description) } })
     }
 }
