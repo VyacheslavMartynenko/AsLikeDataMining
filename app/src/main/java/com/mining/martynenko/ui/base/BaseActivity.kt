@@ -20,4 +20,19 @@ abstract class BaseActivity : AppCompatActivity(), MvpView {
                 .applicationComponent((application as AsLikeApplication).applicationComponent)
                 .build()
     }
+
+    fun addFragment(id: Int, fragment: BaseFragment) {
+        supportFragmentManager
+                .beginTransaction()
+                .replace(id, fragment)
+                .commitAllowingStateLoss()
+    }
+
+    fun addFragmentWithBackStack(id: Int, fragment: BaseFragment) {
+        supportFragmentManager
+                .beginTransaction()
+                .replace(id, fragment)
+                .addToBackStack(null)
+                .commitAllowingStateLoss()
+    }
 }
