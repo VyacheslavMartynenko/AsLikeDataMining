@@ -1,9 +1,10 @@
-package com.mining.martynenko
+package com.mining.martynenko.ui.main
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.mining.martynenko.R
+import com.mining.martynenko.ui.base.BaseActivity
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
